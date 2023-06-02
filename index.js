@@ -9,6 +9,7 @@ const cors = require('cors');
 
 const conversationRoute = require("./routes/conversations");
 const messageRoute = require("./routes/messages");
+const bodyParser = require("body-parser");
 
 const router = express.Router();
 
@@ -26,6 +27,7 @@ mongoose.connect(
 
 //middleware
 app.use(express.json());
+app.use(bodyParser.json());
 app.use(helmet());
 app.use(morgan("common"));
 

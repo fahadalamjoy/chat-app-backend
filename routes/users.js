@@ -5,10 +5,13 @@ const router = require("express").Router();
  
 router.post("/", async (req, res) => {
     const newUser = new User(req.body);
-    console.log(newUser)
+    console.log("hit")
+    console.log(req.body)
   
     try {
       const savedUser = await newUser.save();
+      console.log('savedUser'+savedUser)
+      console.log('newUser'+newUser)
       res.status(200).json(savedUser);
     } catch (err) {
       res.status(500).json(err);
