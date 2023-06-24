@@ -34,6 +34,9 @@ app.use(morgan("common"));
 app.use("/api/users", userRoute);
 app.use("/api/conversations", conversationRoute);
 app.use("/api/messages", messageRoute);
+app.get("/", (req, res) => {
+  res.send("Hello from Chat server");
+})
 
 const PORT = process.env.PORT || 5000;
 
